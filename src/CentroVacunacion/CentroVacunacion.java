@@ -13,7 +13,7 @@ public class CentroVacunacion {
 
 		this.vacunables = new ColaNodos[CANT_COLAS];
 
-		for (int i = 0; i < vacunables.length; i++) {
+		for (int i = 0; i < CANT_COLAS; i++) {
 
 			this.vacunables[i] = new ColaNodos<>();
 		}
@@ -66,6 +66,7 @@ public class CentroVacunacion {
 																				// a la par de la matriz.
 
 			}
+
 		}
 		return matriz;
 
@@ -133,24 +134,27 @@ public class CentroVacunacion {
 
 		ListaPorPrioridad lista = new ListaPorPrioridad();
 
-		ColaNodos<Vacunable> c;
+		ColaNodos<Vacunable> cola;
+
 		Vacunable v;
 
-		for (int i = 0; i < vacunables.length; i++) {
+		for (int i = 0; i < CANT_COLAS; i++) {
 
-			c = vacunables[i];
+			// System.out.println(i + " val i");
 
-			v = c.remove();
+			cola = this.vacunables[i];
 
-			while (!c.isEmpty()) {
+			while (!cola.isEmpty()) { // CUIDADO de no hacer el remove antes del while.
+
+				v = cola.remove();
 
 				lista.add(v);
-
-				v = c.remove();
 
 			}
 
 		}
+
+		System.out.println(lista.size() + " tamaño lista");
 
 		return lista;
 
@@ -174,6 +178,8 @@ public class CentroVacunacion {
 
 	public void mostrarColaPorPrioridad() {
 
+		System.out.println(" -- CANDIDATOS: -- ");
+
 		ColaNodos<Vacunable> ColaPorPrioridad = obtenerColaPorPrioridad();
 
 		Vacunable cent = new PerroDeRescate("");
@@ -186,7 +192,7 @@ public class CentroVacunacion {
 
 		while (candidatoActual != cent) {
 
-			System.out.println(candidatoActual);
+			System.out.println(candidatoActual.toString());
 
 			ColaPorPrioridad.add(candidatoActual);
 
