@@ -4,7 +4,7 @@ Centro de vacunación para recibir la vacuna contra el Covid. Uso de arrays, mat
 Dada la expectativa por la vacuna contra el Covid, ya es posible inscribirse voluntariamente a un centro de
 vacunación para recibirla.
 
-Todo aquel que sea vacunable debe ser capaz de devolver un valor entero que indica la prioridad para ser
+Todo aquel que sea vacunable debe ser capaz de devolver un valor que indica la prioridad para ser
 atendido. Tales valores representan: 0 para Prioridad máxima, 1 para Prioridad media y 2 para Prioridad
 mínima.
 
